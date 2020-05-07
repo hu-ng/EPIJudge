@@ -17,5 +17,5 @@ def evaluate(expression):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main("evaluate_rpn.py", 'evaluate_rpn.tsv',
+        generic_test.generic_test_main('evaluate_rpn.py', 'evaluate_rpn.tsv',
                                        evaluate))

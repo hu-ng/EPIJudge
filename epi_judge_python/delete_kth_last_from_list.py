@@ -1,3 +1,6 @@
+from typing import Optional
+
+from list_node import ListNode
 from test_framework import generic_test
 
 class ListNode:
@@ -21,6 +24,6 @@ def remove_kth_last(L, k):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main("delete_kth_last_from_list.py",
+        generic_test.generic_test_main('delete_kth_last_from_list.py',
                                        'delete_kth_last_from_list.tsv',
                                        remove_kth_last))
