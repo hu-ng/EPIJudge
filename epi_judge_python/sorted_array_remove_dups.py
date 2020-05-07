@@ -5,14 +5,17 @@ from test_framework import generic_test
 from test_framework.test_utils import enable_executor_hook
 
 
-# Returns the number of valid entries after deletion.
+
 def delete_duplicates(A: List[int]) -> int:
+    # One pointer approach
+    # That pointer always writes new unique entries
     if not A:
         return 0
+    
     write_idx = 1
-    for i in range(1, len(A)):
-        if A[i] != A[write_idx - 1]:
-            A[write_idx] = A[i]
+    for i, val in enumerate(A):
+        if val != A[write_idx - 1]:
+            A[write_idx] = val
             write_idx += 1
     return write_idx
 

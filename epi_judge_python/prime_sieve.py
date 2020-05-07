@@ -5,15 +5,18 @@ from test_framework import generic_test
 
 # Given n, return all primes up to and including n.
 def generate_primes(n: int) -> List[int]:
-    is_prime = [False, False] + [True]*(n - 1)
-    results = []
+    is_prime = [False, False] + [True]*(n - 1) # N + 1 in total
+
+    result = []
 
     for i in range(2, n + 1):
         if is_prime[i]:
-            results.append(i)
-            for j in range(i, n + 1, i):
-                is_prime[j] = False
-    return results
+            result.append(i)
+
+            # Sieve all multiples
+            for multiple in range(i, n + 1, i):
+                is_prime[multiple] = False
+    return result
 
 
 if __name__ == '__main__':
