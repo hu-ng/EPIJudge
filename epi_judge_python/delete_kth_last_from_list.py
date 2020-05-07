@@ -3,13 +3,9 @@ from typing import Optional
 from list_node import ListNode
 from test_framework import generic_test
 
-class ListNode:
-    def __init__(self, value=0, node=None):
-        self.value = value
-        self.next = node
 
 # Assumes L has at least k nodes, deletes the k-th last node in L.
-def remove_kth_last(L, k):
+def remove_kth_last(L: ListNode, k: int) -> Optional[ListNode]:
     dummy_head = ListNode(0, L)
     first = dummy_head.next
     for _ in range(k):

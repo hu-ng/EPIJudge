@@ -1,7 +1,7 @@
 from test_framework import generic_test
 
 
-def evaluate(expression):
+def evaluate(expression: str) -> int:
     operators = {
     "+": lambda y, x: x + y, "-": lambda y, x: x - y,
     "*": lambda y, x: x*y, "/": lambda y, x: int(x/y)

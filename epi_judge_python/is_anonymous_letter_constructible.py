@@ -2,7 +2,8 @@ from test_framework import generic_test
 import collections
 
 
-def is_letter_constructible_from_magazine(letter_text, magazine_text):
+def is_letter_constructible_from_magazine(letter_text: str,
+                                          magazine_text: str) -> bool:
     # Frequency of letters in the letter
     letter_freq = collections.Counter(letter_text)
 
@@ -19,6 +20,7 @@ def is_letter_constructible_from_magazine(letter_text, magazine_text):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main("is_anonymous_letter_constructible.py",
-                                       'is_anonymous_letter_constructible.tsv',
-                                       is_letter_constructible_from_magazine))
+        generic_test.generic_test_main(
+            'is_anonymous_letter_constructible.py',
+            'is_anonymous_letter_constructible.tsv',
+            is_letter_constructible_from_magazine))

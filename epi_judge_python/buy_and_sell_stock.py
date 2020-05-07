@@ -3,7 +3,7 @@ from typing import List
 from test_framework import generic_test
 
 
-def buy_and_sell_stock_once(prices):
+def buy_and_sell_stock_once(prices: List[float]) -> float:
     max_profit = -float("inf")
     buy = prices[0]
     for price in prices:

@@ -1,6 +1,6 @@
 from test_framework import generic_test
 
-def is_palindrome(s):
+def is_palindrome(s: str) -> bool:
     start, end = 0, len(s) - 1
     while start < end:
         while not s[start].isalnum() and start < end:
@@ -16,6 +16,6 @@ def is_palindrome(s):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main("is_string_palindromic_punctuation.py",
-                                       "is_string_palindromic_punctuation.tsv",
-                                       is_palindrome))
+        generic_test.generic_test_main(
+            'is_string_palindromic_punctuation.py',
+            'is_string_palindromic_punctuation.tsv', is_palindrome))

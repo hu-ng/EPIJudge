@@ -1,5 +1,3 @@
-
-
 class ListNode:
     def __init__(self, data=0, next=None):
         self.data = data
@@ -43,3 +41,15 @@ class ListNode:
 
     def __str__(self):
         return self.__repr__()
+
+
+def list_size(node):
+    result = 0
+    visited = set()
+
+    while node is not None and id(node) not in visited:
+        result += 1
+        visited.add(id(node))
+        node = node.next
+
+    return result

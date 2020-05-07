@@ -1,7 +1,9 @@
+from typing import List
+
 from test_framework import generic_test
 
 
-def intersect_two_sorted_arrays(A, B):
+def intersect_two_sorted_arrays(A: List[int], B: List[int]) -> List[int]:
     a_idx, b_idx, result = 0, 0, []
     # Traverse the two arrays simultaneously
     while a_idx < len(A) and b_idx < len(B):
@@ -24,6 +26,6 @@ def intersect_two_sorted_arrays(A, B):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main("intersect_sorted_arrays.py",
+        generic_test.generic_test_main('intersect_sorted_arrays.py',
                                        'intersect_sorted_arrays.tsv',
                                        intersect_two_sorted_arrays))

@@ -2,7 +2,7 @@ from test_framework import generic_test
 from test_framework.test_failure import TestFailure
 import functools
 
-def int_to_string(x):
+def int_to_string(x: int) -> str:
     # Deal with negatives
     is_negative = False
     if x < 0:
@@ -28,7 +28,7 @@ def int_to_string(x):
         return "".join(reversed(result))
 
 
-def string_to_int(s):
+def string_to_int(s: str) -> int:
     is_negative = False
     if s[0] == "-":
         s = s[1:]
@@ -44,14 +44,14 @@ def string_to_int(s):
 
 
 def wrapper(x, s):
-    if int_to_string(x) != s:
-        raise TestFailure("Int to string conversion failed")
+    if int(int_to_string(x)) != x:
+        raise TestFailure('Int to string conversion failed')
     if string_to_int(s) != x:
-        raise TestFailure("String to int conversion failed")
+        raise TestFailure('String to int conversion failed')
 
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main("string_integer_interconversion.py",
+        generic_test.generic_test_main('string_integer_interconversion.py',
                                        'string_integer_interconversion.tsv',
                                        wrapper))

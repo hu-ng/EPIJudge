@@ -1,7 +1,9 @@
+from typing import Iterator, List
+
 from test_framework import generic_test
 import heapq
 
-def online_median(sequence):
+def online_median(sequence: Iterator[int]) -> List[float]:
     # smaller half
     max_heap = []
 
@@ -25,5 +27,5 @@ def online_median_wrapper(sequence):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main("online_median.py", "online_median.tsv",
+        generic_test.generic_test_main('online_median.py', 'online_median.tsv',
                                        online_median_wrapper))

@@ -1,7 +1,7 @@
 from test_framework import generic_test
 import string
 
-def convert_base(num_as_string, b1, b2):
+def convert_base(num_as_string: str, b1: int, b2: int) -> str:
     is_negative = num_as_string[0] == "-"
     if is_negative:
         num_as_string = num_as_string[1:]

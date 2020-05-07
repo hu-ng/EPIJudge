@@ -1,7 +1,10 @@
+from typing import List
+
 from test_framework import generic_test
 
 
-def merge_two_sorted_arrays(A, m, B, n):
+def merge_two_sorted_arrays(A: List[int], m: int, B: List[int],
+                            n: int) -> None:
     # Merge elements from the back
     write_idx = m + n - 1
     a_idx, b_idx = m - 1, n - 1
@@ -33,6 +36,6 @@ def merge_two_sorted_arrays_wrapper(A, m, B, n):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main("two_sorted_arrays_merge.py",
+        generic_test.generic_test_main('two_sorted_arrays_merge.py',
                                        'two_sorted_arrays_merge.tsv',
                                        merge_two_sorted_arrays_wrapper))
