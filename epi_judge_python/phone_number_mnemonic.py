@@ -2,8 +2,18 @@ from test_framework import generic_test, test_utils
 
 
 def phone_mnemonic(phone_number):
-    # TODO - you fill in here.
-    return []
+    mapping = ("0", "1", "ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ")
+    def helper(digit):
+        if digit == len(phone_number):
+            mnemonics.append("".join(current_mnemonic))
+        else:
+            for char in mapping[int(phone_number[digit])]:
+                current_mnemonic[digit] = char
+                helper(digit + 1)
+    mnemonics = []
+    current_mnemonic = [0] * len(phone_number)
+    helper(0)
+    return mnemonics
 
 
 if __name__ == '__main__':

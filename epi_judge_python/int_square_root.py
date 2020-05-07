@@ -2,8 +2,16 @@ from test_framework import generic_test
 
 
 def square_root(k):
-    # TODO - you fill in here.
-    return 0
+    # Binary search, but compare using the square of the middle entry
+    L, R = 0, k
+    while L <= R:
+        M = L + (R - L)//2
+        if M**2 > k:
+            R = M - 1
+        elif M**2 <= k:
+            L = M + 1
+
+    return L - 1
 
 
 if __name__ == '__main__':

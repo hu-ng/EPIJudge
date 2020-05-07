@@ -7,8 +7,29 @@ from test_framework.test_utils import enable_executor_hook
 
 
 def lca(node0, node1):
-    # TODO - you fill in here.
-    return None
+    # Find depth difference
+    def get_depth(node):
+        depth = 0
+        while node:
+            depth += 1
+            node = node.parent
+        return depth
+    
+    node0_depth, node1_depth = get_depth(node0), get_depth(node1)
+    # Node 1 refers to the deeper node
+    if node0_depth > node1_depth:
+        node1, node0 = node0, node1
+    
+    # Raise deeper node up
+    for _ in range(abs(node0_depth - node1_depth)):
+        node1 = node1.parent
+    
+    # Move both nodes up together
+    while node1 is not node0:
+        node0, node1 = node0.parent, node1.parent
+    
+    # Return node
+    return node0
 
 
 @enable_executor_hook

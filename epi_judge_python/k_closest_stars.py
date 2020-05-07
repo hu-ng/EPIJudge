@@ -3,7 +3,7 @@ import math
 
 from test_framework import generic_test
 from test_framework.test_utils import enable_executor_hook
-
+import heapq as hq
 
 class Star:
     def __init__(self, x, y, z):
@@ -27,8 +27,13 @@ class Star:
 
 
 def find_closest_k_stars(stars, k):
-    # TODO - you fill in here.
-    return []
+    max_heap = []
+    hq.heapify(max_heap)
+    for star in stars:
+        hq.heappush(max_heap, (-star.distance, star))
+        if len(max_heap) == k + 1:
+            hq.heappop(max_heap)
+    return [s[1] for s in hq.nlargest(k, max_heap)]
 
 
 def comp(expected_output, output):

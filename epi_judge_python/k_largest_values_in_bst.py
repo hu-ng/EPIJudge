@@ -2,8 +2,17 @@ from test_framework import generic_test, test_utils
 
 
 def find_k_largest_in_bst(tree, k):
-    # TODO - you fill in here.
-    return None
+    # reverse inorder, only go k elements in
+    result = []
+    def reverse_inorder(tree):
+        if tree:
+            reverse_inorder(tree.right)
+            if len(result) < k:
+                result.append(tree.data)
+                reverse_inorder(tree.left)
+    
+    reverse_inorder(tree)
+    return result
 
 
 if __name__ == '__main__':

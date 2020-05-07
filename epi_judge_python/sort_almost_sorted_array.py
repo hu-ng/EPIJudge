@@ -1,9 +1,23 @@
 from test_framework import generic_test
+import heapq as hq
 
 
 def sort_approximately_sorted_array(sequence, k):
-    # TODO - you fill in here.
-    return []
+    result = []
+    heap = []
+
+    hq.heapify(heap)
+
+    for _ in range(k):
+        hq.heappush(heap, next(sequence))
+
+    for x in sequence:
+        smallest = hq.heappushpop(heap, x)
+        result.append(smallest)
+
+    while heap:
+        result.append(hq.heappop(heap))
+    return result
 
 
 def sort_approximately_sorted_array_wrapper(sequence, k):
