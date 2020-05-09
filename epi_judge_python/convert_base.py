@@ -6,12 +6,12 @@ def convert_base(num_as_string: str, b1: int, b2: int) -> str:
     if is_negative:
         num_as_string = num_as_string[1:]
 
-    # Convert b1 to decimal
+    # Convert b1 to 10
     num_as_int = 0
     for idx, char in enumerate(reversed(num_as_string)):
         num_as_int += string.hexdigits.index(char.lower())*b1**idx
     
-    # Convert from decimal to b2
+    # Convert from 10 to b2
     result = []
     while True:
         result.append(string.hexdigits[num_as_int % b2].upper())

@@ -33,12 +33,12 @@ def string_to_int(s: str) -> int:
     if s[0] == "-":
         s = s[1:]
         is_negative = True
-
-    s = reversed(s)
+    if s[0] == "+":
+        s = s[1:]
 
     sum_amt = 0
-    for idx, char in enumerate(s):
-        sum_amt += (ord(char) - ord("0"))*10**idx
+    for char in s:
+        sum_amt = sum_amt * 10 + (ord(char) - ord("0"))
     return -1*sum_amt if is_negative else sum_amt
 
 

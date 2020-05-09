@@ -5,7 +5,7 @@ from test_framework import generic_test
 
 def multiply(num1: List[int], num2: List[int]) -> List[int]:
     # Get the sign of the most significant digit
-    sign = -1 if (num1[0] < 0) ^ (num2[0] < 0) else 1
+    sign = -1 if (num1[0] * num2[0] < 0) else 1
     num1[0], num2[0] = abs(num1[0]), abs(num2[0])
 
     # Form the result array
@@ -14,9 +14,8 @@ def multiply(num1: List[int], num2: List[int]) -> List[int]:
     # For each digit in the first int
     for i in reversed(range(len(num1))):
 
-        # For each digit in the second digit
+        # For each digit in the second int
         for j in reversed(range(len(num2))):
-
             result[i + j + 1] += num1[i] * num2[j]
             result[i + j] += result[i + j + 1] // 10
             result[i + j + 1] %= 10

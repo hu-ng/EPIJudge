@@ -8,31 +8,36 @@ from test_framework.test_utils import enable_executor_hook
 def replace_and_remove(size: int, s: List[str]) -> int:
     # First pass: remove the b's
     write_idx = 0
-    b_count = 0
     a_count = 0
 
     for idx, value in enumerate(s):
-        if value != "b":
+        if value != "b" and value != "":
             s[write_idx] = s[idx]
             write_idx += 1
-            if value == "a":
-                a_count += 1
-        elif value == "b":
-            b_count += 1
+        if value == "a":
+            a_count += 1
             
     # Second pass: move backwards, start from write_idx
-    new_size = size + a_count - b_count
-    write_idx = size - b_count - 1
-    new_write_idx = new_size - 1
-    for idx in range(write_idx, -1, -1):
-        if s[idx] == "a":
-            s[new_write_idx]  = "d"
-            s[new_write_idx - 1] = "d"
-            new_write_idx -= 2
+
+    # Current idx: after deleting all the b's
+    cur_idx = write_idx - 1
+
+    # Where to start writing
+    write_idx += a_count - 1
+
+    # Final size = last idx + 1
+    final_size = write_idx + 1
+
+    while cur_idx >= 0:
+        if s[cur_idx] == "a":
+            s[write_idx]  = "d"
+            s[write_idx - 1] = "d"
+            write_idx -= 2
         else:
-            s[new_write_idx] = s[idx]
-            new_write_idx -= 1
-    return new_size
+            s[write_idx] = s[cur_idx]
+            write_idx -= 1
+        cur_idx -= 1
+    return final_size
 
 
 @enable_executor_hook
