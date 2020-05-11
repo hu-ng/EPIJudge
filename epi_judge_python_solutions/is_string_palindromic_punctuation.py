@@ -5,15 +5,24 @@ def is_palindrome(s: str) -> bool:
 
     # i moves forward, and j moves backward.
     i, j = 0, len(s) - 1
+
+    # isalnum() to check if a string is alphanumeric
+
     while i < j:
-        # i and j both skip non-alphanumeric characters.
+        # Move forward until s[i] is alphanumeric
         while not s[i].isalnum() and i < j:
             i += 1
+
+        # Move backward until s[j] is alphanumeric
         while not s[j].isalnum() and i < j:
-            j -= 1
+            j += 1
+
+        # Check palindrome condition
         if s[i].lower() != s[j].lower():
             return False
-        i, j = i + 1, j - 1
+        
+        i += 1
+        j -= 1
     return True
 
 
