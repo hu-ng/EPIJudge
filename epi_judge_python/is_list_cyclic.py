@@ -9,26 +9,38 @@ from test_framework.test_utils import enable_executor_hook
 
 def has_cycle(head: ListNode) -> Optional[ListNode]:
     def cycle_length(node):
-        start, step = node, 0
+        """
+        Return the length of a cycle given that a cycle has been found.
+        """
+        length = 0
+        start = node
         while True:
             start = start.next
-            step += 1
+            length += 1
             if start is node:
-                return step
+                break
+        return length
 
+    # Slow and fast pointer
     fast = slow = head
-    while fast and fast.next and fast.next.next:
-        slow, fast = slow.next, fast.next.next
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+
+        # If slow meets fast
         if slow is fast:
-            # Find start of cycle:
-            advanced_iter = head
+
+            # Advance a pointer head by the length of the cycle
+            advanced = head
             for _ in range(cycle_length(slow)):
-                advanced_iter = advanced_iter.next
+                advanced = advanced.next
             
-            iter_ = head
-            while iter_ is not advanced_iter:
-                iter_, advanced_iter = iter_.next, advanced_iter.next
-            return iter_
+            # Move advanced pointer and head along at the same pace until they meet.
+            start = head
+            while start is not advanced:
+                start, advanced = start.next, advanced.next
+            return start
+    # If fast reached the end, then there is no loop.
     return None
 
 

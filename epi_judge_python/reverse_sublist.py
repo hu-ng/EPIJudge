@@ -13,14 +13,22 @@ def reverse_sublist(L: ListNode, start: int,
     for _ in range(1, start):
         sublist_head = sublist_head.next
 
-    # Swap
-    sublist_iter = sublist_head.next
+
+    # The tail of the reversed sublist is going to be the first node in the original sublist
+    sublist_tail = sublist_head.next
     for _ in range(finish - start):
-        temp = sublist_iter.next
-        (print("temp", temp))
-        sublist_iter.next = temp.next
-        temp.next = sublist_head.next
-        sublist_head.next = temp
+        # Current node to change the pointer of
+        current_node = sublist_tail.next
+
+        # Next node to update, update the tail to point to that node
+        next_node = current_node.next
+        sublist_tail.next = next_node
+
+        # Point to the next node after sublist head
+        current_node.next = sublist_head.next
+        sublist_head.next = current_node
+
+        # Though out the entire process, the next pointers for sublist head and tails change
 
     return dummy_head.next
 
