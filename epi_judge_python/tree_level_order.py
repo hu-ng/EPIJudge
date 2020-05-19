@@ -15,16 +15,22 @@ def binary_tree_depth_order(tree: BinaryTreeNode) -> List[List[int]]:
     current_level = [tree]
     result = []
     while current_level:
-        result.append([node.data for node in current_level])
         next_level = []
-        # Figure out which node to list in the next level
+        level_result = []
+        
+        # Process from front to back
         for node in current_level:
+            # Add current node to result
+            level_result.append(node.data)
+
+            # Find next nodes to explore
             if node.left:
                 next_level.append(node.left)
             if node.right:
                 next_level.append(node.right)
-        # Replace with next level
+                
         current_level = next_level
+        result.append(level_result)
     return result
 
 

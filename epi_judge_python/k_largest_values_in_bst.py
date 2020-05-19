@@ -5,7 +5,7 @@ from test_framework import generic_test, test_utils
 
 
 def find_k_largest_in_bst(tree: BstNode, k: int) -> List[int]:
-    # reverse inorder, only go k elements in
+    # Reverse inorder, only go k elements in
     result = []
     def reverse_inorder(tree):
         if tree:

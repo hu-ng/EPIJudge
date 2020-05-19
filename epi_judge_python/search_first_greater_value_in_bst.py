@@ -7,8 +7,10 @@ from test_framework import generic_test
 def find_first_greater_than_k(tree: BstNode, k: int) -> Optional[BstNode]:
     subtree, first = tree, None
     while subtree:
-        if k < subtree.data:
+        # If current node value is bigger than k, than we know that the right answer must be in the tree rooted at the current node.
+        if subtree.data > k:
             first, subtree = subtree, subtree.left
+        # Else, go right
         else:
             subtree = subtree.right
     return first

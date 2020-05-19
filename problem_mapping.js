@@ -882,7 +882,7 @@ problem_mapping = {
                 "total": 101
             },
             "Python: stack_with_max.py": {
-                "passed": 0,
+                "passed": 101,
                 "total": 101
             }
         },
@@ -896,7 +896,7 @@ problem_mapping = {
                 "total": 108
             },
             "Python: evaluate_rpn.py": {
-                "passed": 0,
+                "passed": 108,
                 "total": 108
             }
         },
@@ -952,7 +952,7 @@ problem_mapping = {
                 "total": 3852
             },
             "Python: tree_level_order.py": {
-                "passed": 0,
+                "passed": 3852,
                 "total": 3852
             }
         },
@@ -966,7 +966,7 @@ problem_mapping = {
                 "total": 65
             },
             "Python: circular_queue.py": {
-                "passed": 0,
+                "passed": 65,
                 "total": 65
             }
         },
@@ -1010,7 +1010,7 @@ problem_mapping = {
                 "total": 3852
             },
             "Python: is_tree_balanced.py": {
-                "passed": 0,
+                "passed": 3852,
                 "total": 3852
             }
         },
@@ -1024,7 +1024,7 @@ problem_mapping = {
                 "total": 3852
             },
             "Python: is_tree_symmetric.py": {
-                "passed": 0,
+                "passed": 3852,
                 "total": 3852
             }
         },
@@ -1052,7 +1052,7 @@ problem_mapping = {
                 "total": 948
             },
             "Python: lowest_common_ancestor_with_parent.py": {
-                "passed": 0,
+                "passed": 948,
                 "total": 948
             }
         },
@@ -1150,7 +1150,7 @@ problem_mapping = {
                 "total": 3852
             },
             "Python: tree_from_preorder_inorder.py": {
-                "passed": 0,
+                "passed": 3852,
                 "total": 3852
             }
         },
@@ -1576,7 +1576,7 @@ problem_mapping = {
                 "total": 203
             },
             "Python: longest_contained_interval.py": {
-                "passed": 0,
+                "passed": 203,
                 "total": 203
             }
         },
@@ -1818,7 +1818,7 @@ problem_mapping = {
                 "total": 949
             },
             "Python: search_first_greater_value_in_bst.py": {
-                "passed": 0,
+                "passed": 949,
                 "total": 949
             }
         },
@@ -1832,7 +1832,7 @@ problem_mapping = {
                 "total": 949
             },
             "Python: k_largest_values_in_bst.py": {
-                "passed": 0,
+                "passed": 949,
                 "total": 949
             }
         },

@@ -5,7 +5,7 @@ from test_framework import generic_test
 def is_balanced_binary_tree(tree: BinaryTreeNode) -> bool:
     
     def check_balance(tree):
-        # Doing a preorder traversal
+        # Doing a postorder traversal
         # If any of the left or right subtree is not balanced, return False
         # Base case: the leaf is always balanced
         if not tree:

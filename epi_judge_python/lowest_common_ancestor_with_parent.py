@@ -8,8 +8,8 @@ from test_framework.test_failure import TestFailure
 from test_framework.test_utils import enable_executor_hook
 
 
-<<<<<<< HEAD
-def lca(node0, node1):
+def lca(node0: BinaryTreeNode,
+        node1: BinaryTreeNode) -> Optional[BinaryTreeNode]:
     # Find depth difference
     def get_depth(node):
         depth = 0
@@ -33,12 +33,6 @@ def lca(node0, node1):
     
     # Return node
     return node0
-=======
-def lca(node0: BinaryTreeNode,
-        node1: BinaryTreeNode) -> Optional[BinaryTreeNode]:
-    # TODO - you fill in here.
-    return None
->>>>>>> master
 
 
 @enable_executor_hook
