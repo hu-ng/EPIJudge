@@ -10,11 +10,9 @@ class Queue:
 
     def enqueue(self, x: int) -> None:
         if self.size() == len(self._entries):
-            print(self._entries)
             self._entries = (
                 self._entries[self._head:] + self._entries[:self._head]
             )
-            print(self._entries)
             self._head, self._tail = 0, self._num_elements
             self._entries += [None] * (len(self._entries) * 2 - len(self._entries))
 
